@@ -3,7 +3,7 @@ const UserViews = require('../models/userView');
 module.exports.getProductViews = async (req,res)=>{
 
     try {
-        const { startAt, endAt, isUnique,productID } = req.query;
+        const { startAt, endAt,productID } = req.query;
         let matchQuery = {};
         if(startAt && endAt){
             matchQuery['$match'] = {productID : productID ,viewDate:{$gt :startAt , $lte  : endAt}}
